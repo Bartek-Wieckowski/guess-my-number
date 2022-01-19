@@ -1,4 +1,5 @@
 "use strict";
+const body = document.querySelector("body");
 const message = document.querySelector(".heading-secondary");
 const rightScore = document.querySelector(".number");
 const score = document.querySelector(".score");
@@ -17,13 +18,28 @@ btnCheck.addEventListener("click", function () {
     message.textContent = "⛔ No number!";
   } else if (guess === foundNumber) {
     message.textContent = "🎉 Correct Number";
+    body.style.backgroundColor = "aquamarine";
+    body.style.color = "#333";
+    rightScore.style.width = "25rem";
   } else if (guess > foundNumber) {
-    message.textContent = "📈 Too high!";
-    attemptScore--;
-    score.textContent = attemptScore;
-  } else {
-    message.textContent = "📉 Too low!";
-    attemptScore--;
-    score.textContent = attemptScore;
+    if (attemptScore > 1) {
+      message.textContent = "📈 Too high!";
+      attemptScore--;
+      score.textContent = attemptScore;
+    } else {
+      message.textContent = "💥 You lost the game!";
+      score.textContent = 0;
+      body.style.backgroundColor = "red";
+    }
+  } else if (guess < foundNumber) {
+    if (attemptScore > 1) {
+      message.textContent = "📉 Too low!";
+      attemptScore--;
+      score.textContent = attemptScore;
+    } else {
+      message.textContent = "💥 You lost the game!";
+      score.textContent = 0;
+      body.style.backgroundColor = "red";
+    }
   }
 });
