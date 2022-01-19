@@ -53,7 +53,7 @@ section {
 }
 #middle .number {
   background-color: #fff;
-  width: 12rem;
+  width: 18rem;
   height: 10rem;
   padding: 4rem;
   color: #333;
@@ -75,7 +75,7 @@ section {
   color: aquamarine;
   border: 3px solid #fff;
   margin-bottom: 2rem;
-  text-align: centergit;
+  text-align: center;
 }
 #bottom .left-data .check {
   padding: 1rem 2.5rem;
