@@ -12,45 +12,57 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="again-container">
-          <button class="again">Again!</button>
-        </div>
-        <div class="range-container">
-          <p class="range">(Between 1 and 20)</p>
+  <section class="top" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-between align-items-center">
+          <div class="again-container">
+            <button class="again">Again!</button>
+          </div>
+          <div class="range-container">
+            <p class="range">(Between 1 and 20)</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <h1>Guess My Number!</h1>
-      <div class="score-container">
-        <div class="line"></div>
-        <div class="score">?</div>
-        <div class="line"></div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <input type="number">
-        <button>Check!</button>
-      </div>
-      <div class="col-6">
-        <h2>Start guessing...</h2>
-        <div class="result-container">
-          <p>Score: <span>20</span></p>
-          <p>Highscore: <span>0</span></p>
+  </section>
 
+  <section class="middle" id="middle">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col text-center">
+          <h1 class="heading-primary">Guess My Number!</h1>
+          <div class="score-container">
+            <div class="line line-left"></div>
+            <div class="score">?</div>
+            <div class="line line-right"></div>
+          </div>
         </div>
-
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="bottom" id="bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="left-data d-flex flex-column">
+            <input type="number" class="number">
+            <button class="check">Check!</button>
+          </div>
+        </div>
+        <div class="col-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="right-data d-flex flex-column">
+            <h2 class="heading-secondary">Start guessing...</h2>
+            <div class="result-container">
+              <p>💯&nbsp;Score: <span>20</span></p>
+              <p>🥇&nbsp;Highscore: <span>0</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
     integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"

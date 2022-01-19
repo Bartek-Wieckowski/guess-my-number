@@ -16,6 +16,78 @@ body {
   color: aquamarine;
   background-color: #333;
 }
-.again {
-  padding: 30px;
+section {
+  padding: 2rem 0;
+}
+/* Top page */
+#top .again {
+  padding: 1.5rem 2.5rem;
+  border: none;
+  font-size: 1.8rem;
+}
+#top .range {
+  font-size: 1.6rem;
+}
+/* Middle page */
+#middle .col {
+  margin-top: 3rem;
+}
+#middle .heading-primary {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+#middle .score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#middle .line {
+  height: 0.5rem;
+  background-color: #fff;
+}
+#middle .line-left {
+  width: 50%;
+}
+#middle .line-right {
+  width: 50%;
+}
+#middle .score {
+  background-color: #fff;
+  width: 12rem;
+  height: 10rem;
+  padding: 4rem;
+  color: #333;
+  font-size: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Bottom page */
+#bottom .col-6 {
+  min-height: 25vh;
+}
+#bottom .left-data .number {
+  display: block;
+  width: 18rem;
+  height: 6rem;
+  font-size: 3rem;
+  background-color: #333;
+  color: aquamarine;
+  border: 3px solid #fff;
+  margin-bottom: 2rem;
+}
+#bottom .left-data .check {
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  border: none;
+  width: 80%;
+  margin: auto;
+}
+#bottom .right-data .heading-secondary {
+  font-size: 1.6rem;
+  margin-bottom: 5rem;
+}
+#bottom .right-data .result-container p,
+span {
+  font-size: 1.4rem;
 }
