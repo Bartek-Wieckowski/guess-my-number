@@ -8,15 +8,16 @@ const attemptUser = document.querySelector(".attempt-user");
 const btnCheck = document.querySelector(".check");
 const btnAgain = document.querySelector(".again");
 
-const foundNumber = Math.trunc(Math.random() * 20) + 1;
+let foundNumber = Math.trunc(Math.random() * 20) + 1;
+
 let attemptScore = 20;
 
-rightScore.textContent = foundNumber;
 btnCheck.addEventListener("click", function () {
   const guess = Number(attemptUser.value);
   if (!guess) {
     message.textContent = "⛔ No number!";
   } else if (guess === foundNumber) {
+    rightScore.textContent = foundNumber;
     message.textContent = "🎉 Correct Number";
     body.style.backgroundColor = "aquamarine";
     body.style.color = "#333";
@@ -42,4 +43,15 @@ btnCheck.addEventListener("click", function () {
       body.style.backgroundColor = "red";
     }
   }
+});
+
+btnAgain.addEventListener("click", function () {
+  message.textContent = "Start guessing...";
+  attemptScore = 20;
+  score.textContent = attemptScore;
+  rightScore.textContent = "?";
+  attemptUser.value = "";
+  body.style.backgroundColor = "#333";
+  body.style.color = "aquamarine";
+  foundNumber = Math.trunc(Math.random() * 20) + 1;
 });
