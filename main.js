@@ -4,6 +4,7 @@ const message = document.querySelector(".heading-secondary");
 const rightScore = document.querySelector(".number");
 const score = document.querySelector(".score");
 const attemptUser = document.querySelector(".attempt-user");
+const userHighScore = document.querySelector(".highscore");
 
 const btnCheck = document.querySelector(".check");
 const btnAgain = document.querySelector(".again");
@@ -11,6 +12,7 @@ const btnAgain = document.querySelector(".again");
 let foundNumber = Math.trunc(Math.random() * 20) + 1;
 
 let attemptScore = 20;
+let highScore = 0;
 
 btnCheck.addEventListener("click", function () {
   const guess = Number(attemptUser.value);
@@ -22,6 +24,10 @@ btnCheck.addEventListener("click", function () {
     body.style.backgroundColor = "aquamarine";
     body.style.color = "#333";
     rightScore.style.width = "25rem";
+    if (attemptScore > highScore) {
+      highScore = attemptScore;
+      userHighScore.textContent = highScore;
+    }
   } else if (guess > foundNumber) {
     if (attemptScore > 1) {
       message.textContent = "📈 Too high!";
