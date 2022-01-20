@@ -1,4 +1,5 @@
 "use strict";
+// variables
 const body = document.querySelector("body");
 const message = document.querySelector(".heading-secondary");
 const rightScore = document.querySelector(".number");
@@ -10,54 +11,57 @@ const btnCheck = document.querySelector(".check");
 const btnAgain = document.querySelector(".again");
 
 let foundNumber = Math.trunc(Math.random() * 20) + 1;
-
 let attemptScore = 20;
 let highScore = 0;
 
+// functions
+const displayMessage = function (differentMsg) {
+  message.textContent = differentMsg;
+};
+const setCSSeffects = function (colorBG, colorTxt, width) {
+  body.style.backgroundColor = colorBG;
+  body.style.color = colorTxt;
+  rightScore.style.width = width;
+};
+const secretNumber = function (generateNum) {
+  rightScore.textContent = generateNum;
+};
+const countAttempt = function (attempt) {
+  score.textContent = attempt;
+};
+
+// events
 btnCheck.addEventListener("click", function () {
   const guess = Number(attemptUser.value);
   if (!guess) {
-    message.textContent = "⛔ No number!";
+    displayMessage("⛔ No number!");
   } else if (guess === foundNumber) {
-    rightScore.textContent = foundNumber;
-    message.textContent = "🎉 Correct Number";
-    body.style.backgroundColor = "aquamarine";
-    body.style.color = "#333";
-    rightScore.style.width = "25rem";
+    secretNumber(foundNumber);
+    displayMessage("🎉 Correct Number");
+    setCSSeffects("aquamarine", "#333", "25rem");
     if (attemptScore > highScore) {
       highScore = attemptScore;
       userHighScore.textContent = highScore;
     }
-  } else if (guess > foundNumber) {
+  } else if (guess !== foundNumber) {
     if (attemptScore > 1) {
-      message.textContent = "📈 Too high!";
+      displayMessage(guess > foundNumber ? "📈 Too high!" : "📉 Too low!");
       attemptScore--;
-      score.textContent = attemptScore;
+      countAttempt(attemptScore);
     } else {
-      message.textContent = "💥 You lost the game!";
-      score.textContent = 0;
-      body.style.backgroundColor = "red";
-    }
-  } else if (guess < foundNumber) {
-    if (attemptScore > 1) {
-      message.textContent = "📉 Too low!";
-      attemptScore--;
-      score.textContent = attemptScore;
-    } else {
-      message.textContent = "💥 You lost the game!";
-      score.textContent = 0;
-      body.style.backgroundColor = "red";
+      displayMessage("💥 You lost the game!");
+      countAttempt(0);
+      setCSSeffects("red");
     }
   }
 });
 
 btnAgain.addEventListener("click", function () {
-  message.textContent = "Start guessing...";
-  attemptScore = 20;
-  score.textContent = attemptScore;
-  rightScore.textContent = "?";
-  attemptUser.value = "";
-  body.style.backgroundColor = "#333";
-  body.style.color = "aquamarine";
   foundNumber = Math.trunc(Math.random() * 20) + 1;
+  displayMessage("Start guessing...");
+  attemptScore = 20;
+  countAttempt(attemptScore);
+  secretNumber("?");
+  setCSSeffects("#333", "aquamarine", "18rem");
+  attemptUser.value = "";
 });
