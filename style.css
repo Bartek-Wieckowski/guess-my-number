@@ -95,3 +95,28 @@ span {
 small {
   font-size: 6px;
 }
+@media (max-width: 767.98px) {
+  #top .range {
+    font-size: 1.4rem;
+  }
+  #middle .heading-primary {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  #bottom .right-data {
+    margin-top: 3rem;
+  }
+  footer {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #top .range {
+    font-size: 1.2rem;
+  }
+  #middle .heading-primary {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+}
